@@ -18,8 +18,9 @@ class Mapa:
             for bloco in linha:
                 bloco.desenhar(tela)
     
-    def processar_click(self, cord_x, cord_y):
-        linha = cord_y // constantes.TAMANHO_BLOCO
-        coluna = cord_x // constantes.TAMANHO_BLOCO
-        if 0 <= linha and linha < self.tamanho and 0 <= coluna and coluna < self.tamanho:
-            self.blocos[linha][coluna].click()
+    def obter_bloco(self, pixel_x, pixel_y):
+        linha = pixel_y // constantes.TAMANHO_BLOCO
+        coluna = pixel_x // constantes.TAMANHO_BLOCO
+        if 0 <= linha < self.tamanho and 0 <= coluna < self.tamanho:
+            return self.blocos[linha][coluna]
+        return None

@@ -11,3 +11,8 @@ AZUL = (100, 149, 237)
 MARROM = (101, 67, 33)
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
+
+#constantes para Bloco.py
+VAZIO = 0
+CONSTRUÇÃO = 1
+MORADOR = 2
