@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class Manu(ABC):
+class Menu(ABC):
     @abstractmethod
     def desenhar(self, tela):
         pass

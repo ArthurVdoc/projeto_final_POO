@@ -16,3 +16,8 @@ BRANCO = (255, 255, 255)
 VAZIO = 0
 CONSTRUÇÃO = 1
 MORADOR = 2
+
+#Dimensões botão menu_bloco
+LARGURA_BT1 = 120
+ALTURA_BT1 = 30
+espaço_BT1 = 5
