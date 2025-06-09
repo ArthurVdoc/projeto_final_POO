@@ -6,7 +6,7 @@ class Botao:
         self.texto = texto
         self.retangulo = pygame.Rect(cord_x, cord_y, largura, altura)
         self.retorno = funcao_retoro
-        self.fonte = pygame.font.SysFont(None, 24)
+        self.fonte = pygame.font.SysFont(None, 18)
     
     def desenhar(self, tela):
         pygame.draw.rect(tela, constantes.CINZA, self.retangulo)

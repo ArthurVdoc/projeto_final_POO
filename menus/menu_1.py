@@ -6,15 +6,15 @@ import constantes
 import pygame
 
 class Menu_1(Menu):
-    def __init__(self, bloco, ao_fechar):
+    def __init__(self, bloco, posição_mouse, ao_fechar):
         self.bloco = bloco
+        self.posição_mouse = posição_mouse
         self.botoes = []
         self.ao_fechar = ao_fechar
         self.criar_botoes()
     
     def criar_botoes(self):
-        x = self.bloco.cord_x * self.bloco.tamanho
-        y = self.bloco.cord_y * self.bloco.tamanho
+        x, y = self.posição_mouse
         largura  = constantes.LARGURA_BT1
         altura = constantes.ALTURA_BT1
         espaço = constantes.espaço_BT1

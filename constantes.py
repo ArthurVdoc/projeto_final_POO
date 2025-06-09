@@ -19,6 +19,6 @@ CONSTRUÇÃO = 1
 MORADOR = 2
 
 #Dimensões botão menu_bloco
-LARGURA_BT1 = 120
+LARGURA_BT1 = 140
 ALTURA_BT1 = 30
-espaço_BT1 = 5
+espaço_BT1 = 0
