@@ -12,7 +12,7 @@ class Bloco:
         if self.estado == constantes.CONSTRUÇÃO:
             cor = constantes.MARROM
         elif self.estado == constantes.MORADOR:
-            cor = constantes.AZUL
+            cor = constantes.AMARELO
         else:
             cor = constantes.VERDE
         retangulo = pygame.Rect(self.cord_x*self.tamanho, self.cord_y*self.tamanho, self.tamanho, self.tamanho)

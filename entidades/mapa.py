@@ -1,4 +1,4 @@
-from bloco import Bloco
+from entidades.bloco import Bloco
 import constantes
 
 class Mapa:

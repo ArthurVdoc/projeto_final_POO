@@ -2,7 +2,7 @@ from engine.jogo import Jogo
 
 def main():
     jogo = Jogo()
-    jogo.executar
+    jogo.executar()
 
 if __name__ == "__main__":
     main()
