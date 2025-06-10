@@ -12,13 +12,23 @@ AMARELO = (255, 255, 0)
 MARROM = (101, 67, 33)
 PRETO = (0, 0, 0)
 BRANCO = (255, 255, 255)
+ROXO = (148, 0, 211)
 
 #constantes para Bloco.py
 VAZIO = 0
-CONSTRUÇÃO = 1
-MORADOR = 2
+CASA = 1
+TAVERNA = 2
+FAZENDEIRO = 3
+CAÇADOR = 4
 
 #Dimensões botão menu_bloco
 LARGURA_BT1 = 140
 ALTURA_BT1 = 30
 espaço_BT1 = 0
+
+#Dimensões botão menu_bloco
+LARGURA_BT2 = 100
+ALTURA_BT2 = 40
+espaço_BT2 = 0
+
+

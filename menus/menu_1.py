@@ -6,11 +6,11 @@ import constantes
 import pygame
 
 class Menu_1(Menu):
-    def __init__(self, bloco, posição_mouse, ao_fechar):
+    def __init__(self, bloco, posição_mouse, abrir_menu_2):
         self.bloco = bloco
         self.posição_mouse = posição_mouse
         self.botoes = []
-        self.ao_fechar = ao_fechar
+        self.abrir_menu_2 = abrir_menu_2
         self.criar_botoes()
     
     def criar_botoes(self):
@@ -19,16 +19,14 @@ class Menu_1(Menu):
         altura = constantes.ALTURA_BT1
         espaço = constantes.espaço_BT1
 
-        self.botoes.append(Botao("Adicionar Construção", x, y, largura, altura, self.adicionar_construção))
-        self.botoes.append(Botao("adicionar Morador", x, y+altura+espaço, largura, altura, self.adicionar_morador))
-    
-    def adicionar_construção(self):
-        self.bloco.definir_estado(constantes.CONSTRUÇÃO)
-        self.ao_fechar()
-
-    def adicionar_morador(self):
-        self.bloco.definir_estado(constantes.MORADOR)
-        self.ao_fechar()
+        self.botoes.append(Botao("Adicionar Construção", x, y, 
+                                 largura, altura, 
+                                 lambda: self.abrir_menu_2("construção", self.bloco, 
+                                                           x+largura+espaço, y)))
+        self.botoes.append(Botao("adicionar Morador", x, y+altura+espaço, 
+                                 largura, altura, 
+                                 lambda: self.abrir_menu_2("morador", self.bloco, 
+                                                           x+largura+espaço, y)))
     
     def desenhar(self, tela):
         for botao in self.botoes:
