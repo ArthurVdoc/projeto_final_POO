@@ -1,3 +1,4 @@
+from utilidades.carregar_sprites import CarregarSprites
 from entidades.mapa import Mapa
 from menus.menu_1 import Menu_1
 from menus.menu_2 import Menu_2
@@ -13,6 +14,8 @@ class Jogo:
         self.tela = pygame.display.set_mode((constantes.LARGURA_TELA, 
                                              constantes.ALTURA_TELA))
         pygame.display.set_caption("Projeto Final POO")
+        #carrega as sprites
+        CarregarSprites.carregar_sprites()
         #cria o clock temporal
         self.clock = pygame.time.Clock()
         #cria o mapa

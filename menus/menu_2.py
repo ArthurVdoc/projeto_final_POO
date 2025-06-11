@@ -26,7 +26,11 @@ class Menu_2(Menu):
                                      lambda: self.definir_estado(self.bloco, constantes.CASA)))
             self.botoes.append(Botao("Taverna", self.cord_x, self.cord_y + altura + espaço, 
                                      largura, altura, 
-                                     lambda: self.definir_estado(self.bloco, constantes.TAVERNA)))    
+                                     lambda: self.definir_estado(self.bloco, constantes.TAVERNA)))
+            self.botoes.append(Botao("Caminho", self.cord_x, self.cord_y + (altura*2) + espaço, 
+                                     largura, altura, 
+                                     lambda: self.definir_estado(self.bloco, constantes.CAMINHO)))
+                  
         elif self.tipo == "morador":
             self.botoes.append(Botao("Fazendeiro", self.cord_x, self.cord_y, 
                                      largura, altura,
