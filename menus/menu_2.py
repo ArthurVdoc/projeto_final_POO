@@ -1,6 +1,6 @@
 from menus.menu import Menu
 from utilidades.botao import Botao
-from entidades.bloco import Bloco
+from front_entidades.bloco import Bloco
 import constantes
 
 import pygame

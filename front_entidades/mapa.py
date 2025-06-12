@@ -1,4 +1,4 @@
-from entidades.bloco import Bloco
+from front_entidades.bloco import Bloco
 import constantes
 
 class Mapa:

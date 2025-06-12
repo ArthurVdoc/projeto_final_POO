@@ -1,5 +1,5 @@
 from utilidades.carregar_sprites import CarregarSprites
-from entidades.mapa import Mapa
+from front_entidades.mapa import Mapa
 from menus.menu_1 import Menu_1
 from menus.menu_2 import Menu_2
 import constantes
