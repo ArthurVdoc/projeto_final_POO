@@ -2,6 +2,7 @@ from utilidades.carregar_sprites import CarregarSprites
 from front_entidades.mapa import Mapa
 from menus.menu_1 import Menu_1
 from menus.menu_2 import Menu_2
+from back_entidades.cidade import Cidade
 import constantes
 
 import pygame
@@ -20,6 +21,8 @@ class Jogo:
         self.clock = pygame.time.Clock()
         #cria o mapa
         self.mapa = Mapa()
+        #cria a logica de cidade
+        self.cidade = Cidade()
 
         self.menu_1_ativo = None
         self.menu_2_ativo = None

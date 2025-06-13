@@ -1,4 +1,4 @@
-from morador_base import Morador
+from back_entidades.moradores.morador_base import Morador
 
 class Fazendeiro(Morador):
     def custo(self):

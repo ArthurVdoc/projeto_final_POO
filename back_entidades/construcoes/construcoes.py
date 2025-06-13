@@ -1,4 +1,4 @@
-from construcao_base import Construção
+from back_entidades.construcoes.construcao_base import Construção
 
 class Casa(Construção):
     def custo(self):

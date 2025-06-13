@@ -40,8 +40,8 @@ class Menu_2(Menu):
                                      lambda: self.definir_estado(self.bloco, constantes.CAÇADOR)))    
     
     def definir_estado(self, bloco, estado):
-        bloco.definir_estado(estado)
-        self.ao_fechar()
+            bloco.definir_estado(estado)
+            self.ao_fechar()
     
     def desenhar(self, tela):
         for botao in self.botoes:
