@@ -4,6 +4,7 @@ from menus.menu_1 import Menu_1
 from menus.menu_2 import Menu_2
 from back_entidades.cidade import Cidade
 import constantes
+import os
 
 import pygame
 
@@ -31,8 +32,13 @@ class Jogo:
     def executar(self):
         while self.jogo_ativo:
             self.tratar_eventos()
+            self.cidade.atualizar_dinheiro_diario()
             self.desenhar()
             pygame.display.update()
+
+            self.limpar_terminal()
+            print("Dinheiro: ", self.cidade.dinheiro.dinheiro)
+
             self.clock.tick(30)
         pygame.quit()
 
@@ -50,7 +56,7 @@ class Jogo:
                     self.menu_1_ativo = Menu_1(bloco, evento.pos, self.abrir_menu_2)
     
     def abrir_menu_2(self, tipo, bloco, x, y):
-        self.menu_2_ativo = Menu_2(tipo, bloco, x, y, self.fechar_menus)
+        self.menu_2_ativo = Menu_2(tipo, bloco, x, y, self.fechar_menus, self.cidade)
 
     def fechar_menus(self):
         self.menu_1_ativo = None
@@ -59,7 +65,11 @@ class Jogo:
     def desenhar(self):
         self.tela.fill(constantes.AZUL)
         self.mapa.desenhar(self.tela)
+        self.cidade.dinheiro.desenhar(self.tela)
         if self.menu_1_ativo:
             self.menu_1_ativo.desenhar(self.tela)
         if self.menu_2_ativo:
             self.menu_2_ativo.desenhar(self.tela)
+    
+    def limpar_terminal(self):
+        os.system('clear')

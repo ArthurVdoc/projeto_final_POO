@@ -10,4 +10,4 @@ class Cacador(Morador):
     def custo(self):
         return 200
     def rendimento_dia(self):
-        return 50
+        return 40

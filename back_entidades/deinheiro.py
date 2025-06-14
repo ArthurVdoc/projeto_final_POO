@@ -1,18 +1,28 @@
+import pygame
+import constantes
 
 class Dinheiro:
     def __init__(self, dinheiro_inicial):
         self._dinheiro = dinheiro_inicial
+        self.fonte = pygame.font.SysFont(None, 24)
+
 
     @property
     def dinheiro(self):
-        return self.__dinheiro
+        return self._dinheiro
     
     def gastar(self, valor):
-        if self.__dinheiro >= valor:
-            self.__dinheiro -= valor
+        if self._dinheiro >= valor:
+            self._dinheiro -= valor
             return True
         return False
     
     def receber(self, valor):
-        self.__dinheiro += valor
+        self._dinheiro += valor
+    
+    def desenhar(self, tela):
+        texto = "Dinheiro: $" + str(self._dinheiro)
+        texto_render = self.fonte.render(texto, True, constantes.AMARELO)
+        tela.blit(texto_render, (10, 10)) 
+
     

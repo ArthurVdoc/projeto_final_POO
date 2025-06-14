@@ -7,7 +7,7 @@ import pygame
 
 
 class Menu_2(Menu):
-    def __init__(self, tipo, bloco, cord_x, cord_y, ao_fechar):
+    def __init__(self, tipo, bloco, cord_x, cord_y, ao_fechar, cidade):
         self.tipo = tipo
         self.bloco = bloco
         self.cord_x = cord_x
@@ -15,6 +15,7 @@ class Menu_2(Menu):
         self.botoes = []
         self.ao_fechar  = ao_fechar
         self.criar_botoes()
+        self.cidade = cidade
     
     def criar_botoes(self):
         largura = constantes.LARGURA_BT2
@@ -40,8 +41,13 @@ class Menu_2(Menu):
                                      lambda: self.definir_estado(self.bloco, constantes.CAÇADOR)))    
     
     def definir_estado(self, bloco, estado):
-            bloco.definir_estado(estado)
-            self.ao_fechar()
+        if estado in (constantes.CASA, constantes.TAVERNA, constantes.CAMINHO):
+            if self.cidade.adicionar_construção(estado):
+                bloco.definir_estado(estado)
+        elif estado in (constantes.FAZENDEIRO, constantes.CAÇADOR):
+            if self.cidade.adicionar_morador(estado):
+                bloco.definir_estado(estado)
+        self.ao_fechar()
     
     def desenhar(self, tela):
         for botao in self.botoes:
