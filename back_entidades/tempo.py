@@ -6,4 +6,4 @@ class Tempo:
     
     def dias_passados(self):
         segundos_passados = time.time() - self.inicio
-        return int(segundos_passados//30)
+        return int(segundos_passados//10)

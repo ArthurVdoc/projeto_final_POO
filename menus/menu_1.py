@@ -23,7 +23,7 @@ class Menu_1(Menu):
                                  largura, altura, 
                                  lambda: self.abrir_menu_2("construção", self.bloco, 
                                                            x+largura+espaço, y)))
-        self.botoes.append(Botao("adicionar Morador", x, y+altura+espaço, 
+        self.botoes.append(Botao("Adicionar Morador", x, y+altura+espaço, 
                                  largura, altura, 
                                  lambda: self.abrir_menu_2("morador", self.bloco, 
                                                            x+largura+espaço, y)))
