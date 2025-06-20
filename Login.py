@@ -5,6 +5,7 @@ import subprocess
 
 # Instância do banco de dados JSON
 Login = DatabaseJSON("usuarios.json")
+Login.criar()
 
 # Carrega os usuários do arquivo
 def carregar_usuarios():
@@ -40,6 +41,11 @@ def alterar_senha():
 
     janela.quit()
     subprocess.Popen(["python", "Senha.py"])
+
+def deletar():
+
+    janela.quit()
+    subprocess.Popen(["python", "Deletar.py"])
 
 def rank():
     janela.quit()
@@ -84,6 +90,10 @@ btn_cadastrar.pack()
 #Botão de alterar senha
 btn_alterarsenha = ctk.CTkButton(janela, text="Alterar senha", command=alterar_senha)
 btn_alterarsenha.pack(pady=10)
+
+#Botão de deletar
+btn_deletar = ctk.CTkButton(janela, text="Excluir usuário", command=deletar)
+btn_deletar.pack(pady=10)
 
 #Botão de rank
 btn_rank = ctk.CTkButton(janela, text="Rank", command=rank)
