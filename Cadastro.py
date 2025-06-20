@@ -5,6 +5,7 @@ import subprocess
 
 # Instância do banco de dados JSON
 Login = DatabaseJSON("usuarios.json")
+Login.criar()
 
 # Carrega os usuários do arquivo
 def carregar_usuarios():
