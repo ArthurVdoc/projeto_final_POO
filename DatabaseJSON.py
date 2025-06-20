@@ -10,8 +10,6 @@ class DatabaseJSON(DatabaseInterface):
         if not os.path.exists(self.nome):
             with open(self.nome, "w") as f:
                 json.dump({}, f)
-        with open(self.nome, "r") as f:
-            return json.load(f)
 
     def carregar(self, entrada: dict):
         self.criar()
