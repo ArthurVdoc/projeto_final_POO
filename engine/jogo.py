@@ -2,10 +2,10 @@ from utilidades.carregar_sprites import CarregarSprites
 from front_entidades.mapa import Mapa
 from menus.menu_1 import Menu_1
 from menus.menu_2 import Menu_2
+from menus.menu_3 import Menu_sair
 from back_entidades.cidade import Cidade
 import constantes
 import os
-
 import pygame
 
 class Jogo:
@@ -24,6 +24,7 @@ class Jogo:
         self.mapa = Mapa()
         #cria a logica de cidade
         self.cidade = Cidade()
+        self.botao_sair = Menu_sair(self.tela)
 
         self.menu_1_ativo = None
         self.menu_2_ativo = None
@@ -46,10 +47,12 @@ class Jogo:
         for evento in pygame.event.get():
             if evento.type == pygame.QUIT:
                 self.jogo_ativo = False
+            elif self.botao_sair.tratar_evento(evento):
+                continue 
             elif self.menu_2_ativo:
                 self.menu_2_ativo.tratar_evento(evento)
             elif self.menu_1_ativo:
-                self.menu_1_ativo.tratar_evento(evento)
+                 self.menu_1_ativo.tratar_evento(evento) 
             elif evento.type == pygame.MOUSEBUTTONDOWN:
                 bloco = self.mapa.obter_bloco(evento.pos[0], evento.pos[1])
                 if bloco:
@@ -70,6 +73,9 @@ class Jogo:
             self.menu_1_ativo.desenhar(self.tela)
         if self.menu_2_ativo:
             self.menu_2_ativo.desenhar(self.tela)
+
+        if not self.menu_1_ativo and not self.menu_2_ativo:
+            self.botao_sair.desenhar()
     
     def limpar_terminal(self):
         os.system('clear')

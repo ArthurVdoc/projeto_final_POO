@@ -1,5 +1,6 @@
 from engine.jogo import Jogo
 
+
 def main():
     jogo = Jogo()
     jogo.executar()
