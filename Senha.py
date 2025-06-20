@@ -5,6 +5,7 @@ import subprocess
 
 # Banco de dados
 Login = DatabaseJSON("usuarios.json")
+Login.criar()
 
 # Tema
 ctk.set_appearance_mode("dark")
@@ -51,6 +52,10 @@ def voltar():
     janela.quit()
     subprocess.Popen(["python", "Login.py"])
 
+# Título
+titulo = ctk.CTkLabel(janela, text="Alterar senha", font=ctk.CTkFont(size=20, weight="bold"))
+titulo.pack(pady=20)
+
 # Campo de usuário
 entrada_usuario = ctk.CTkEntry(janela, placeholder_text="Usuário")
 entrada_usuario.pack(pady=10)
@@ -78,7 +83,6 @@ btn_alterarsenha = ctk.CTkButton(janela, text="Alterar senha", command=alterar_s
 btn_alterarsenha.pack(pady=20)
 
 #Botão voltar
-
 btn_voltar = ctk.CTkButton(janela, text="Menu Principal", command=voltar)
 btn_voltar.pack(pady=20)
 
