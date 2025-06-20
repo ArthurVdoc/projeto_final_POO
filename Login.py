@@ -25,18 +25,8 @@ def realizar_login():
 
 # Função de cadastro
 def cadastrar_usuario():
-    usuarios = carregar_usuarios()
-    usuario = entrada_usuario.get()
-    senha = entrada_senha.get()
-
-    if not usuario or not senha:
-        messagebox.showwarning("Erro", "Preencha todos os campos.")
-    elif usuario in usuarios:
-        messagebox.showwarning("Erro", "Usuário já existe.")
-    else:
-        usuarios[usuario] = senha
-        Login.carregar(usuarios)  # salva usando a interface do banco
-        messagebox.showinfo("Cadastro", f"Usuário '{usuario}' cadastrado com sucesso!")
+    janela.quit()
+    subprocess.Popen(["python", "Cadastro.py"])
 
 #Oculta e mostra a senha
 senha_visivel = False
