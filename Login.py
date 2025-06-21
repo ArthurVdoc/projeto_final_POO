@@ -3,9 +3,12 @@ from tkinter import messagebox
 from DatabaseJSON import DatabaseJSON
 import subprocess
 import sys
+from menus.menu_3 import Menu_sair
+
 
 # Instância do banco de dados JSON
 Login = DatabaseJSON("usuarios.json")
+Logado = DatabaseJSON("usuariologado.json")
 
 # Carrega os usuários do arquivo
 def carregar_usuarios():
@@ -19,6 +22,7 @@ def realizar_login():
 
     if usuario in usuarios and usuarios[usuario] == senha:
         messagebox.showinfo("Login", f"Bem-vindo, {usuario}!")
+        logado = Logado.alterar("nome", usuario)
         janela.quit()
         subprocess.Popen([sys.executable, "main.py"])
         sys.exit()
@@ -58,6 +62,10 @@ def rank():
     janela.quit()
     subprocess.Popen(["python", "Rank.py"])
 
+def fechar_login(self):
+    usuario = self.campo_usuario.get()
+    self.menu_3.usuario_logado = usuario  # Atribui diretamente
+    self.destroy()
 
 
 # Configuração de tema
