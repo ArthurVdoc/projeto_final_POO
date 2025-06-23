@@ -24,7 +24,7 @@ def realizar_login():
         messagebox.showinfo("Login", f"Bem-vindo, {usuario}!")
         logado = Logado.alterar("nome", usuario)
         janela.quit()
-        subprocess.Popen([sys.executable, "main.py"])
+        subprocess.Popen([sys.executable, "code_path.py"])
         sys.exit()
 
     else:
