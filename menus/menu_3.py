@@ -10,7 +10,7 @@ from DatabaseJSON import DatabaseJSON
 from back_entidades.cidade import Cidade
 
 class Menu_sair(Menu):
-    def __init__(self, tela, cidade: Cidade):
+    def __init__(self, tela: pygame.display, cidade: Cidade):
         self.tela = tela
         self.botao = self._criar_botao()
         self.cidade = cidade    
@@ -26,7 +26,7 @@ class Menu_sair(Menu):
             lambda: self._fechar_jogo("Login.py")
         )
     
-    def _fechar_jogo(self,arquivo_novo):
+    def _fechar_jogo(self, arquivo_novo: str):
 
         usuario_logado = DatabaseJSON("usuariologado.json")
         usuario_rank = DatabaseJSON("usuariosmoney.json")
@@ -46,11 +46,14 @@ class Menu_sair(Menu):
         if nome in dados_rank:
             if dinheiro > dados_rank[nome]:
                 dados_rank[nome] = dinheiro
+            else:
+                dados_rank[nome] = dinheiro
+
+            usuario_rank.carregar(dados_rank)
+
         else:
-            dados_rank[nome] = dinheiro
-
-        usuario_rank.carregar(dados_rank)
-
+            usuario_rank.alterar(dados_logado["nome"],dados_logado["dinheiro"])
+            
         pygame.quit()
         subprocess.Popen([sys.executable, arquivo_novo]) 
         sys.exit()
@@ -58,7 +61,7 @@ class Menu_sair(Menu):
     def desenhar(self):
         self.botao.desenhar(self.tela)
     
-    def tratar_evento(self, evento):
+    def tratar_evento(self, evento: pygame.event):
         if evento.type == pygame.MOUSEBUTTONDOWN:
             return self.botao.checar_clique(evento.pos)
         return False
