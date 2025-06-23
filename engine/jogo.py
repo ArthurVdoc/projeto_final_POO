@@ -55,7 +55,7 @@ class Jogo:
             elif evento.type == pygame.MOUSEBUTTONDOWN:
                 bloco = self.mapa.obter_bloco(evento.pos[0], evento.pos[1])
                 if bloco:
-                    self.menu_1_ativo = Menu_1(bloco, evento.pos, self.abrir_menu_2)
+                    self.menu_1_ativo = Menu_1(bloco, evento.pos, self.abrir_menu_2, self.fechar_menus)##
     
     def abrir_menu_2(self, tipo: str, bloco: int , x: int, y: int):
         self.menu_2_ativo = Menu_2(tipo, bloco, x, y, self.fechar_menus, self.cidade)

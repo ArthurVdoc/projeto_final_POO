@@ -19,3 +19,5 @@ class Botao:
     def checar_clique(self, posicao):
         if self.retangulo.collidepoint(posicao):
             self.retorno()
+            return True  # Retorna True quando o botão foi clicado
+        return False     # Retorna False quando não foi clicado

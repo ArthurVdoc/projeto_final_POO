@@ -56,6 +56,14 @@ class Menu_2(Menu):
     def tratar_evento(self, evento):
         if evento.type == pygame.MOUSEBUTTONDOWN:
             posição = evento.pos
+            clique_em_botao = False
+            
+            # Verifica se clicou em algum botão
             for botao in self.botoes:
-                botao.checar_clique(posição)
-    
+                if botao.checar_clique(posição):
+                    clique_em_botao = True
+                    break
+            
+            # Se não clicou em nenhum botão, fecha o menu
+            if not clique_em_botao:
+                self.ao_fechar()
