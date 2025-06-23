@@ -54,9 +54,13 @@ def alternar_senha():
 
 #Alterar a senha
 def alterar_senha():
-
     janela.quit()
     subprocess.Popen(["python", "Senha.py"])
+
+#Deletar o usuário
+def deletar():
+    janela.quit()
+    subprocess.Popen(["python", "Deletar.py"])
 
 def rank():
     janela.quit()
@@ -78,7 +82,7 @@ janela.title("Login Simulador")
 janela.geometry("400x400")
 
 # Título
-titulo = ctk.CTkLabel(janela, text="Simulador de cidade", font=ctk.CTkFont(size=20, weight="bold"))
+titulo = ctk.CTkLabel(janela, text="Roccasecca's rising", font=ctk.CTkFont(size=20, weight="bold"))
 titulo.pack(pady=20)
 
 # Campo de usuário

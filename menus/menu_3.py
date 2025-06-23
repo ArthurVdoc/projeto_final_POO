@@ -10,9 +10,10 @@ from DatabaseJSON import DatabaseJSON
 from back_entidades.cidade import Cidade
 
 class Menu_sair(Menu):
-    def __init__(self, tela):
+    def __init__(self, tela, cidade: Cidade):
         self.tela = tela
-        self.botao = self._criar_botao()    
+        self.botao = self._criar_botao()
+        self.cidade = cidade    
 
     def _criar_botao(self):
         x = constantes.LARGURA_TELA - constantes.LARGURA_BT1 - 10
@@ -25,28 +26,31 @@ class Menu_sair(Menu):
             lambda: self._fechar_jogo("Login.py")
         )
     
-    def _fechar_jogo(self, arquivo_novo):
-        dinheiro_log = DatabaseJSON("usuariologado.json")
-        with open('usuariologado.json', 'r', encoding='utf-8') as f1:
-            pessoa = json.load(f1)  
-        with open('usuariosmoney.json', 'r', encoding='utf-8') as f2:
-            salarios = json.load(f2) 
-        nome1 = pessoa["nome"]
-        dinheiro_pessoa = pessoa["dinheiro"]
-        if nome1 in salarios:
-            dinheiro_salario = salarios[nome1]
-            if dinheiro_pessoa > dinheiro_salario:
-                salarios[nome1] = dinheiro_pessoa
-                with open('usuariosmoney.json', 'w', encoding='utf-8') as f2:
-                    json.dump(salarios, f2, indent=2, ensure_ascii=False)
-        else:
-            salarios[nome1] = dinheiro_pessoa
-            logado = DatabaseJSON("usuariosmoney.json")
-            log = logado.alterar(nome1, dinheiro_pessoa )
+    def _fechar_jogo(self,arquivo_novo):
 
-        cidade = Cidade()
-        dinheiro_atual = cidade.get_dinheiro()
-        logado = dinheiro_log.alterar("dinheiro", dinheiro_atual)
+        usuario_logado = DatabaseJSON("usuariologado.json")
+        usuario_rank = DatabaseJSON("usuariosmoney.json")
+
+        # Pega os dados do JSON como dicionário
+        dados_logado = usuario_logado.extrair()
+        dados_rank = usuario_rank.extrair()
+
+        nome = dados_logado["nome"]
+        dinheiro = self.cidade.get_dinheiro()
+
+        # Atualiza o dinheiro no JSON do usuário logado
+        dados_logado["dinheiro"] = dinheiro
+        usuario_logado.carregar(dados_logado)
+
+        # Atualiza o rank se necessário
+        if nome in dados_rank:
+            if dinheiro > dados_rank[nome]:
+                dados_rank[nome] = dinheiro
+        else:
+            dados_rank[nome] = dinheiro
+
+        usuario_rank.carregar(dados_rank)
+
         pygame.quit()
         subprocess.Popen([sys.executable, arquivo_novo]) 
         sys.exit()

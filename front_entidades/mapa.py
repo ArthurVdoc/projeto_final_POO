@@ -1,5 +1,6 @@
 from front_entidades.bloco import Bloco
 import constantes
+import pygame
 
 class Mapa:
     def __init__(self):
@@ -13,12 +14,12 @@ class Mapa:
                 linha.append(bloco)
             self.blocos.append(linha)
     
-    def desenhar(self, tela):
+    def desenhar(self, tela: pygame.display):
         for linha in self.blocos:
             for bloco in linha:
                 bloco.desenhar(tela)
     
-    def obter_bloco(self, pixel_x, pixel_y):
+    def obter_bloco(self, pixel_x: int, pixel_y: int):
         linha = pixel_y // constantes.TAMANHO_BLOCO
         coluna = pixel_x // constantes.TAMANHO_BLOCO
         if 0 <= linha < self.tamanho and 0 <= coluna < self.tamanho:

@@ -6,7 +6,7 @@ import constantes
 import pygame
 
 class Menu_1(Menu):
-    def __init__(self, bloco, posição_mouse, abrir_menu_2):
+    def __init__(self, bloco: int, posição_mouse: dict, abrir_menu_2):
         self.bloco = bloco
         self.posição_mouse = posição_mouse
         self.botoes = []
@@ -28,11 +28,11 @@ class Menu_1(Menu):
                                  lambda: self.abrir_menu_2("morador", self.bloco, 
                                                            x+largura+espaço, y)))
     
-    def desenhar(self, tela):
+    def desenhar(self, tela: pygame.display):
         for botao in self.botoes:
             botao.desenhar(tela)
 
-    def tratar_evento(self, evento):
+    def tratar_evento(self, evento: pygame.event):
         if evento.type == pygame.MOUSEBUTTONDOWN:
             posição = evento.pos
             for botao in self.botoes:

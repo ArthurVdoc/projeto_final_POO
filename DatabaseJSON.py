@@ -22,7 +22,7 @@ class DatabaseJSON(DatabaseInterface):
         with open(self.nome, "r") as f:
             return json.load(f)
 
-    def alterar(self, chave: str, valor):
+    def alterar(self, chave: str, valor: int):
         dados = self.extrair()
         dados[chave] = valor
         self.carregar(dados)

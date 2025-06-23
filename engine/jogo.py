@@ -24,8 +24,7 @@ class Jogo:
         self.mapa = Mapa()
         #cria a logica de cidade
         self.cidade = Cidade()
-        self.botao_sair = Menu_sair(self.tela)
-
+        self.botao_sair = Menu_sair(self.tela,self.cidade)
         self.menu_1_ativo = None
         self.menu_2_ativo = None
         self.jogo_ativo = True
@@ -58,7 +57,7 @@ class Jogo:
                 if bloco:
                     self.menu_1_ativo = Menu_1(bloco, evento.pos, self.abrir_menu_2)
     
-    def abrir_menu_2(self, tipo, bloco, x, y):
+    def abrir_menu_2(self, tipo: str, bloco: int , x: int, y: int):
         self.menu_2_ativo = Menu_2(tipo, bloco, x, y, self.fechar_menus, self.cidade)
 
     def fechar_menus(self):

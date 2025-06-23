@@ -21,7 +21,7 @@ def Rank():
     # Ordenar por valor (dinheiro), do maior para o menor
     ranking_ordenado = sorted(usuarios.items(), key=lambda item: item[1], reverse=True)
 
-    texto = "🏆 Ranking:\n\n"
+    texto = "Ranking:\n\n"
     for i, (nome, valor) in enumerate(ranking_ordenado, start=1):
         texto += f"{i}. {nome} — {valor}\n"
     
