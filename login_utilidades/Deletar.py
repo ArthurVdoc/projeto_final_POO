@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from DatabaseJSON import DatabaseJSON
+from database.DatabaseJSON import DatabaseJSON
 import subprocess
 
 # Instância do banco de dados JSON

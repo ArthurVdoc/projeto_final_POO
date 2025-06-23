@@ -6,7 +6,7 @@ import constantes
 import subprocess
 from utilidades.botao import Botao
 from menus.menu import Menu
-from DatabaseJSON import DatabaseJSON
+from database.DatabaseJSON import DatabaseJSON
 from back_entidades.cidade import Cidade
 
 class Menu_sair(Menu):

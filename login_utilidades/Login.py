@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from DatabaseJSON import DatabaseJSON
+from database.DatabaseJSON import DatabaseJSON
 import subprocess
 import sys
 from menus.menu_3 import Menu_sair
