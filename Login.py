@@ -110,8 +110,12 @@ btn_cadastrar.pack()
 btn_alterarsenha = ctk.CTkButton(janela, text="Alterar senha", command=alterar_senha)
 btn_alterarsenha.pack(pady=10)
 
+#Botão de deletar
+btn_deletar = ctk.CTkButton(janela, text="Excluir usuário", command=deletar)
+btn_deletar.pack(pady=10)
+
 #Botão de rank
-btn_rank = ctk.CTkButton(janela, text="Rank", command=rank)
+btn_rank = ctk.CTkButton(janela, text="Ranking", command=rank)
 btn_rank.pack(pady=10)
 
 # Loop principal
